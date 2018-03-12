@@ -1,0 +1,22 @@
+.box {
+  padding: 0.75em;
+  border-radius : 0.5em;
+  border : 1px solid #ddd;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.orange {
+  color: orange;
+  font-weight: bold;
+}
+
+.red {
+  color: crimson;
+  font-weight: bold;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 2em;
+}
