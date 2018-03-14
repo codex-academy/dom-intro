@@ -6,12 +6,12 @@
   margin-bottom: 1em;
 }
 
-.orange {
+.warning {
   color: orange;
   font-weight: bold;
 }
 
-.red {
+.danger {
   color: crimson;
   font-weight: bold;
 }

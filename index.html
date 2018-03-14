@@ -53,6 +53,8 @@
 
           <hr>
 
+          <!-- billString calculateBtn billTotal -->
+
           <div class="row">
             <div class="eight columns">
               <h5>Enter bill string</h5>
@@ -84,9 +86,9 @@
           <div class="row">
             <div class="six columns">
 
-              <label for="exampleEmailInput">Bill type</label>
+              <label for="">Bill type</label>
               <input type="text" name="" value="" placeholder="enter 'call' or 'sms' " class="billTypeText">
-              <button class="button-primary" type="button" name="button" class="addToBill">Add</button>
+              <button class="button-primary addToBillBtn" type="button" name="button" >Add</button>
           </div>
             <div class="six columns">
               <h5>Totals</h5>
@@ -142,7 +144,7 @@
                 <input type="radio" name="billItemType" class="billItemTypeRadio" value="sms">
                 <span class="label-body" >SMS</span>
               </label>
-              <button class="button-primary" type="button" name="button">Add</button>
+              <button class="button-primary radioBillAddBtn" type="button" name="button">Add</button>
             </div>
             <div class="six columns">
                   <h5>Totals</h5>
@@ -227,7 +229,10 @@
         </div>
       </div>
     </div>
-    <script src="app.js" charset="utf-8"></script>
+    <script src="js/calculate-bill.js" charset="utf-8"></script>
+    <script src="js/text-bill.js" charset="utf-8"></script>
+    <script src="js/radio-bill.js" charset="utf-8"></script>
+    <script src="js/settings-bill.js" charset="utf-8"></script>
 
   </body>
 </html>
