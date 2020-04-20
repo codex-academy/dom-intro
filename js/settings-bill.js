@@ -1,22 +1,74 @@
-// get a reference to the sms or call radio buttons
+var callGrandTotal = document.querySelector(".callTotalSettings");
+var smsGrandTotal = document.querySelector(".smsTotalSettings");
+var grandTotal = document.querySelector(".totalSettings");
 
-// get refences to all the settings fields
 
-//get a reference to the add button
+var callCostSettingElement = document.querySelector(".callCostSetting");
+var smsCostSettingElement = document.querySelector(".smsCostSetting");
+var warningLevelSetting = document.querySelector(".warningLevelSetting");
+var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
+var updateSettingsButton = document.querySelector(".updateSettings");
+var settingsAddButton = document.querySelector(".settingsBillBtn")
 
-//get a reference to the 'Update settings' button
+var callTotalSettings = 0;
+var smsTotalSettings = 0;
+var totalSettings = 0;
 
-// create a variables that will keep track of all the settings
 
-// create a variables that will keep track of all three totals.
+var callCostValue = 0;
+var smsCostValue = 0;
+var warningLevelValue = 0;
+var criticalLevelValue = 0;
 
-//add an event listener for when the 'Update settings' button is pressed
 
-//add an event listener for when the add button is pressed
+function settingsBillTotal() {
+    callCostValue = Number(callCostSettingElement.value);
+    smsCostValue = Number(smsCostSettingElement.value);
+    warningLevelValue = Number(warningLevelSetting.value);
+    criticalLevelValue = Number(criticalLevelSetting.value);
+    changeTotalColor(smsCostValue, warningLevelValue, criticalLevelValue)
 
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the call / sms total
-// * add the appropriate value to the overall total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
+}
+
+function calculateSettingsTotal() {
+    var checkedSettingsBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    if (checkedSettingsBtn) {
+        var billItemType = checkedSettingsBtn.value
+        if (totalSettings < criticalLevelValue) {
+            switch (billItemType) {
+                case "call":
+                    totalSettings += callCostValue;
+                    callTotalSettings += callCostValue;
+
+                    break;
+                case "sms":
+                    totalSettings += smsCostValue;
+                    smsTotalSettings += smsCostValue;
+                    break;
+            };
+
+            changeTotalColor(totalSettings, warningLevelValue, criticalLevelValue)
+            callGrandTotal.innerHTML = callTotalSettings.toFixed(2);
+            smsGrandTotal.innerHTML = smsTotalSettings.toFixed(2);
+            grandTotal.innerHTML = totalSettings.toFixed(2);
+        }
+    }
+
+}
+
+function changeTotalColor(currentTotal, currentWarning, currentCritical) {
+    if (currentTotal >= currentWarning && currentTotal < currentCritical) {
+        grandTotal.classList.remove("danger");
+        grandTotal.classList.add("warning");
+    } else if (currentTotal >= currentCritical) {
+        grandTotal.classList.remove("warning");
+        grandTotal.classList.add("danger");
+    } else {
+        grandTotal.classList.remove("warning");
+        grandTotal.classList.remove("danger");
+    }
+
+}
+
+updateSettingsButton.addEventListener("click", settingsBillTotal);
+settingsAddButton.addEventListener("click", calculateSettingsTotal);
