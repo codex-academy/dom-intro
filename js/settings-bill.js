@@ -61,10 +61,10 @@ function changeTotalColor(currentTotal, currentWarning, currentCritical) {
         grandTotal.classList.remove("danger");
         grandTotal.classList.add("warning");
     } else if (currentTotal >= currentCritical) {
-        grandTotal.classList.remove("warning");
+        // grandTotal.classList.remove("warning");
         grandTotal.classList.add("danger");
     } else {
-        grandTotal.classList.remove("warning");
+        // grandTotal.classList.remove("warning");
         grandTotal.classList.remove("danger");
     }
 
