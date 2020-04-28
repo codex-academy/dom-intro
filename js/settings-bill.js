@@ -21,7 +21,7 @@ function settingsBillTotal() {
     smsCostValue = Number(smsCostSettingElement.value);
     warningLevelValue = Number(warningLevel.value);
     criticalLevelValue = Number(criticalLevel.value);
-    changeTotalColor(smsCostValue, warningLevelValue, criticalLevelValue)
+    changeTotalColor(totalSettings, warningLevelValue, criticalLevelValue)
 
 }
 
