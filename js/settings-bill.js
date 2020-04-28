@@ -1,20 +1,15 @@
-var callGrandTotal = document.querySelector(".callTotalSettings");
-var smsGrandTotal = document.querySelector(".smsTotalSettings");
+var callAllTotal = document.querySelector(".callTotalSettings");
+var smsAllTotal = document.querySelector(".smsTotalSettings");
 var grandTotal = document.querySelector(".totalSettings");
-
-
 var callCostSettingElement = document.querySelector(".callCostSetting");
 var smsCostSettingElement = document.querySelector(".smsCostSetting");
-var warningLevelSetting = document.querySelector(".warningLevelSetting");
-var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
+var warningLevel = document.querySelector(".warningLevelSetting");
+var criticalLevel = document.querySelector(".criticalLevelSetting");
 var updateSettingsButton = document.querySelector(".updateSettings");
 var settingsAddButton = document.querySelector(".add")
-
 var callTotalSettings = 0.00;
 var smsTotalSettings = 0.00;
 var totalSettings = 0.00;
-
-
 var callCostValue = 0.00;
 var smsCostValue = 0.00;
 var warningLevelValue = 0.00;
@@ -24,8 +19,8 @@ var criticalLevelValue = 0.00;
 function settingsBillTotal() {
     callCostValue = Number(callCostSettingElement.value);
     smsCostValue = Number(smsCostSettingElement.value);
-    warningLevelValue = Number(warningLevelSetting.value);
-    criticalLevelValue = Number(criticalLevelSetting.value);
+    warningLevelValue = Number(warningLevel.value);
+    criticalLevelValue = Number(criticalLevel.value);
     changeTotalColor(smsCostValue, warningLevelValue, criticalLevelValue)
 
 }
@@ -48,8 +43,8 @@ function calculateSettingsTotal() {
             };
 
             changeTotalColor(totalSettings, warningLevelValue, criticalLevelValue)
-            callGrandTotal.innerHTML = callTotalSettings.toFixed(2);
-            smsGrandTotal.innerHTML = smsTotalSettings.toFixed(2);
+            callAllTotal.innerHTML = callTotalSettings.toFixed(2);
+            smsAllTotal.innerHTML = smsTotalSettings.toFixed(2);
             grandTotal.innerHTML = totalSettings.toFixed(2);
         }
     }
