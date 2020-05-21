@@ -1,75 +1,61 @@
-function TextBill() {
+function RadioBillBtn() {
     //SETTING THE VALUES COUNTER
-    var theCallCost = 0;
-    var theSmsCost = 0;
-    var theWarningLevel = 0;
-    var theCriticalLevel = 0;
-    //USING THE VALUES COUNTER
+    var theCallCost = 2.75
+    var theSmsCost = 0.75
+    var theWarningLevel = 30
+    var theCriticalLevel = 50
+    //USING THE VALUES COUNTER 
     var callCostTotal = 0
-    var smsCostTotal = 0;
-    
-    //THE CALL COST
+    var smsCostTotal = 0
+    //SETTING & GETTING THE CALL COST
     function setCallCost(callCost) {
-        theCallCost = callCost;
+        theCallCost = callCost
     }
-
     function getCallCost() {
         return theCallCost
     }
-    //SMS COST
+    //SETTING & GETTING THE SMS COST
     function setSmsCost(smsCost) {
-        theSmsCost = smsCost;
+        theSmsCost = smsCost
     }
-
     function getSmsCost() {
         return theSmsCost
     }
-    //THE WARNING LEVEL
+    //SETTING & GETTING THE WARNING LEVEL
     function setWarningLevel(warningLevel) {
         theWarningLevel = warningLevel
     }
-
     function getWarningLevel() {
         return theWarningLevel
     }
-    //THE CRITICAL LEVEL
+    //SETTING & GETTING THE CRITICAL LEVEL
     function setCriticalLevel(criticalLevel) {
         theCriticalLevel = criticalLevel
     }
     function getCriticalLevel() {
         return theCriticalLevel
     }
-    //USING THE SET VALUES
-
     //MAKING A CALL
-    function makeACall() {
-        if (!hasReachedCriticalLevel()) {
-            callCostTotal += theCallCost
-        }
+    function selectCall() {
+        callCostTotal += theCallCost
+    }
+    function getTotalCost() {
+        return callCostTotal + smsCostTotal
     }
     function getTotalCallCost() {
         return callCostTotal
     }
-    //MAKING AN SMS
-    function makeSms() {
-        if (!hasReachedCriticalLevel()) {
-            smsCostTotal += theSmsCost
-        }
-    }
     function getTotalSmsCost() {
         return smsCostTotal
     }
-    //THE TOTAL COST OF BOTH THE SMS AND CALLS
-    function getTotalCost() {
-        return smsCostTotal + callCostTotal
+    //MAKING AN SMS
+    function selectSms() {
+        smsCostTotal += theSmsCost
     }
-    //USING THE WARNING AND CRITICAL LEVELS
+    //USING THE  WARNING & CRITICAL LEVELS
 
-    function hasReachedCriticalLevel() {
-        return getTotalCost() >= getCriticalLevel()
-    }
     function totalClassName() {
-        if (hasReachedCriticalLevel()) {
+        if (getTotalCost() >= getCriticalLevel()) {
             return "critical"
         }
         if (getTotalCost() >= getWarningLevel()) {
@@ -77,7 +63,7 @@ function TextBill() {
         }
     }
     return {
-        //SETTING THE VALUES
+        //SETTING THE CALL COST
         setCallCost,
         getCallCost,
         setSmsCost,
@@ -86,13 +72,11 @@ function TextBill() {
         getWarningLevel,
         setCriticalLevel,
         getCriticalLevel,
-        //USING THE VALUES
-        makeACall,
+        selectCall,
         getTotalCost,
-        getTotalCallCost,
         getTotalSmsCost,
-        makeSms,
-        //USING/SETTING THE WARNING & CRITICAL
+        getTotalCallCost,
+        selectSms,
         totalClassName
     }
 }

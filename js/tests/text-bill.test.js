@@ -78,9 +78,9 @@ describe("The Text Bill Widget", function () {
             billType.setCallCost(2.75); //set call cost
             billType.setSmsCost(0.75); //set sms cost
 
-            billType.makeACall();
-            billType.makeACall();
-            billType.makeACall();
+            billType.inputCall();
+            billType.inputCall();
+            billType.inputCall();
 
             assert.equal(8.25, billType.getTotalCost())
             assert.equal(8.25, billType.getTotalCallCost())
@@ -93,10 +93,10 @@ describe("The Text Bill Widget", function () {
             billType.setCallCost(1.50); //set call cost
             billType.setSmsCost(0.80); //set sms cost
 
-            billType.makeACall();
-            billType.makeACall();
-            billType.makeACall();
-            billType.makeACall();
+            billType.inputCall();
+            billType.inputCall();
+            billType.inputCall();
+            billType.inputCall();
 
             assert.equal(6, billType.getTotalCost())
             assert.equal(6, billType.getTotalCallCost())
@@ -109,10 +109,10 @@ describe("The Text Bill Widget", function () {
             billType.setCallCost(2.75); //set call cost
             billType.setSmsCost(0.80); //set sms cost
 
-            billType.makeSms();
-            billType.makeSms();
-            billType.makeSms();
-            billType.makeSms();
+            billType.inputSms();
+            billType.inputSms();
+            billType.inputSms();
+            billType.inputSms();
 
             assert.equal(3.20, billType.getTotalCost())
             assert.equal(0, billType.getTotalCallCost())
@@ -125,9 +125,9 @@ describe("The Text Bill Widget", function () {
             billType.setCallCost(2.75); //set call cost
             billType.setSmsCost(0.75); //set sms cost
 
-            billType.makeSms();
-            billType.makeSms();
-            billType.makeSms();
+            billType.inputSms();
+            billType.inputSms();
+            billType.inputSms();
 
             assert.equal(2.25, billType.getTotalCost())
             assert.equal(0, billType.getTotalCallCost())
@@ -140,10 +140,10 @@ describe("The Text Bill Widget", function () {
             billType.setCallCost(2.75); //set call cost
             billType.setSmsCost(0.75); //set sms cost
 
-            billType.makeSms();
-            billType.makeSms();
-            billType.makeACall();
-            billType.makeSms();
+            billType.inputSms();
+            billType.inputSms();
+            billType.inputCall();
+            billType.inputSms();
 
             assert.equal(5, billType.getTotalCost())
             assert.equal(2.75, billType.getTotalCallCost())
@@ -160,12 +160,12 @@ describe("The Text Bill Widget", function () {
             billType.setWarningLevel(10);
             billType.setCriticalLevel(30);
 
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
 
             assert.equal("warning", billType.totalClassName())
         })
@@ -177,15 +177,15 @@ describe("The Text Bill Widget", function () {
             billType.setWarningLevel(15);
             billType.setCriticalLevel(30);
 
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
 
             assert.equal("warning", billType.totalClassName())
         })
@@ -196,21 +196,21 @@ describe("The Text Bill Widget", function () {
             billType.setSmsCost(0.65);
             billType.setCriticalLevel(20);
 
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
 
             assert.equal("critical", billType.totalClassName())
         })
@@ -221,21 +221,21 @@ describe("The Text Bill Widget", function () {
             billType.setSmsCost(0.65);
             billType.setCriticalLevel(30);
 
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
-            billType.makeACall();//making a call
-            billType.makeACall();//making a call
-            billType.makeSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
+            billType.inputCall();//making a call
+            billType.inputCall();//making a call
+            billType.inputSms();//making an sms
 
             assert.equal("critical", billType.totalClassName())
         })

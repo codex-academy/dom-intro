@@ -1,13 +1,13 @@
 function CalculateBill() {
     //SETTING THE VALUES COUNTER
-    var theCallCost = 0;
-    var theSmsCost = 0;
-    var theWarningLevel = 0;
-    var theCriticalLevel = 0;
+    var theCallCost = 2.75
+    var theSmsCost = 0.75
+    var theWarningLevel = 20;
+    var theCriticalLevel = 30;
     //USING THE VALUES COUNTER
     var callCostTotal = 0
     var smsCostTotal = 0;
-    
+
     //THE CALL COST
     function setCallCost(callCost) {
         theCallCost = callCost;
@@ -16,7 +16,7 @@ function CalculateBill() {
     function getCallCost() {
         return theCallCost
     }
-    //SMS COST
+    //THE SMS COST
     function setSmsCost(smsCost) {
         theSmsCost = smsCost;
     }
@@ -41,21 +41,20 @@ function CalculateBill() {
     }
     //USING THE SET VALUES
 
-    //MAKING A CALL
-    function makeCall() {
-        if (!hasReachedCriticalLevel()) {
-            callCostTotal += theCallCost
-        }
+
+    //calls are inputed 
+    function callString() {
+        callCostTotal += theCallCost
     }
+    //total for calls
     function getTotalCallCost() {
         return callCostTotal
     }
-    //MAKING AN SMS
-    function makeSms() {
-        if (!hasReachedCriticalLevel()) {
-            smsCostTotal += theSmsCost
-        }
+    //sms is inputed 
+    function smsString() {
+        smsCostTotal += theSmsCost
     }
+    //total for sms
     function getTotalSmsCost() {
         return smsCostTotal
     }
@@ -65,11 +64,9 @@ function CalculateBill() {
     }
     //USING THE WARNING AND CRITICAL LEVELS
 
-    function hasReachedCriticalLevel() {
-        return getTotalCost() >= getCriticalLevel()
-    }
+
     function totalClassName() {
-        if (hasReachedCriticalLevel()) {
+        if (getTotalCost() >= getCriticalLevel()) {
             return "critical"
         }
         if (getTotalCost() >= getWarningLevel()) {
@@ -87,11 +84,11 @@ function CalculateBill() {
         setCriticalLevel,
         getCriticalLevel,
         //USING THE VALUES
-        makeCall,
+        callString,
         getTotalCost,
         getTotalCallCost,
         getTotalSmsCost,
-        makeSms,
+        smsString,
         //USING/SETTING THE WARNING & CRITICAL
         totalClassName
     }
