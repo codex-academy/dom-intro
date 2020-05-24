@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Functions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+</head>
+
+<body>
+    <div id="mocha"></div>
+    <script>
+        mocha.setup('bdd');
+        var assert = chai.assert;
+    </script>
+    <script spellcheck=""></script>
+    <!-- Importing Functions -->
+    <script src="./js/calculate-factory.js" charset="utf-8"></script>
+    <script src="./js/text-factory.js" charset="utf-8"></script>
+    <script src="./js/radioBill-factory.js" charset="utf-8"></script>
+    <script src="./js/settingsBill-factory.js" charset="utf-8"></script>
+    <!-- Importing Tests -->
+    <script src="calculate-bill.test.js" charset="utf-8"></script>
+    <script src="text-factory.test.js" charset="utf-8"></script>
+    <script src="radioBill-factory.test.js" charset="utf-8"></script>
+    <script src="settings-factory.test.js" charset="utf-8"></script>
+    <script>
+        mocha.checkLeaks();
+        mocha.run().globals(["calculatedBill", "billWithSettings"]);
+    </script>
+</body>
+
+</html>
