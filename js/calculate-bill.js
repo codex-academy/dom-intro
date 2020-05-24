@@ -3,29 +3,21 @@ const billTotalElement = document.querySelector(".billTotal")
 const billStringField = document.querySelector(".billString")
 const billTotalSpanElement = document.querySelector(".total")
 
-function calculateBtnClicked() {
+var factory = calculateString();
 
-    var billString = billStringField.value;
-    var billItems = billString.split(",");
-    var billTotal = 0;
-    for (var i = 0; i < billItems.length; i++) {
-        var billItem = billItems[i].trim();
-        if (billItem === "call") {
-            billTotal += 2.75;
-        } else if (billItem === "sms") {
-            billTotal += 0.75;
-        }
-    }
-    var roundedBillTotal = billTotal.toFixed(2);
+function calculateBtnClicked() {
+    
+    var roundedBillTotal = factory.add(billStringElement.value);
+    
     billTotalElement.innerHTML = roundedBillTotal;
-    billTotalSpanElement.classList.remove("warning")
-    billTotalSpanElement.classList.remove("danger")
-    const currentTotal = Number(roundedBillTotal)
-    if (currentTotal >= 30) {
-        billTotalSpanElement.classList.add("danger")
-    } else if (currentTotal > 20 && currentTotal < 30) {
-        billTotalSpanElement.classList.add("warning")
+    
+    var newColor = factory.color(roundedBillTotal);
+    billTotalElement.classList.remove("warning");
+    billTotalElement.classList.remove("danger");
+    if (newColor !== "") {
+        billTotalElement.classList.add(newColor); 
     }
 }
 
-calculateBtn.addEventListener("click", calculateBtnClicked)
+calculateBtn.addEventListener("click", calculateBtnClicked);
+
