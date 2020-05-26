@@ -231,7 +231,7 @@ describe("The Calculate Bill Widget", function () {
             theBill.callString();//making a call
             theBill.smsString();//making an sms
 
-            assert.equal("critical", theBill.totalClassName())
+            assert.equal("danger", theBill.totalClassName())
         })
         it("Should return the classname of 'critical' once the critical level of 40 is reached", function () {
             var theBill = CalculateBill();
@@ -303,7 +303,7 @@ describe("The Calculate Bill Widget", function () {
             theBill.callString();//making a call
             theBill.smsString();//making an sms
             
-            assert.equal("critical", theBill.totalClassName())
+            assert.equal("danger", theBill.totalClassName())
         })
     })
 })

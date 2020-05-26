@@ -73,7 +73,7 @@ function BillWithSettings() {
 
     function totalClassName() {
         if (hasReachedCriticalLevel()) {
-            return "critical"
+            return "danger"
         }
         if (getTotalCost() >= getWarningLevel()) {
             return "warning"

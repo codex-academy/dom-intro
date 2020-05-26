@@ -224,7 +224,7 @@ describe("The Radio Bill Widget", function () {
             radioBill.selectSms();
             radioBill.selectSms();
 
-            assert.equal("critical", radioBill.totalClassName())
+            assert.equal("danger", radioBill.totalClassName())
         })
         it("Should return the classlist of 'critical' when the critical level of 35 is reached", function(){
 
@@ -255,7 +255,7 @@ describe("The Radio Bill Widget", function () {
             radioBill.selectSms();
             radioBill.selectSms();
 
-            assert.equal("critical", radioBill.totalClassName())
+            assert.equal("danger", radioBill.totalClassName())
         })
     })
 })

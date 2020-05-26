@@ -158,7 +158,7 @@ describe("The Bill With Settings Widget", function () {
 			settingsBill.makeCall();
 			settingsBill.makeCall();
 
-			assert.equal("critical", settingsBill.totalClassName())
+			assert.equal("danger", settingsBill.totalClassName())
 		})
 		it("It should should stop the Total Call cost from increasing when the critical level has been reached", function () {
 			var settingsBill = BillWithSettings();
@@ -174,7 +174,7 @@ describe("The Bill With Settings Widget", function () {
 			settingsBill.makeCall();
 			settingsBill.makeCall();
 
-			assert.equal("critical", settingsBill.totalClassName())
+			assert.equal("danger", settingsBill.totalClassName())
 			assert.equal(10, settingsBill.getTotalCallCost())
 		})
 		it("It should allow the total to increase after critical level has been reached and allow for an increase of the critical level", function () {
@@ -191,7 +191,7 @@ describe("The Bill With Settings Widget", function () {
 			settingsBill.makeCall();
 			settingsBill.makeCall();
 
-			assert.equal("critical", settingsBill.totalClassName())
+			assert.equal("danger", settingsBill.totalClassName())
 			assert.equal(10, settingsBill.getTotalCallCost())
 
 			settingsBill.setCriticalLevel(20);

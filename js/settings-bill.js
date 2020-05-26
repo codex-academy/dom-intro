@@ -1,3 +1,4 @@
+//getting reference to the dom elements
 var callGrandTotal = document.querySelector(".callTotalSettings");
 var smsGrandTotal = document.querySelector(".smsTotalSettings");
 var grandTotal = document.querySelector(".totalSettings");
@@ -10,63 +11,44 @@ var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
 var updateSettingsButton = document.querySelector(".updateSettings");
 var settingsAddButton = document.querySelector(".settingsBillBtn")
 
-var callTotalSettings = 0;
-var smsTotalSettings = 0;
-var totalSettings = 0;
+//linking the factory to the dom
 
-
-var callCostValue = 0;
-var smsCostValue = 0;
-var warningLevelValue = 0;
-var criticalLevelValue = 0;
-
+var billSettings = BillWithSettings();
 
 function settingsBillTotal() {
-    callCostValue = Number(callCostSettingElement.value);
-    smsCostValue = Number(smsCostSettingElement.value);
-    warningLevelValue = Number(warningLevelSetting.value);
-    criticalLevelValue = Number(criticalLevelSetting.value);
-    changeTotalColor(totalSettings, warningLevelValue, criticalLevelValue)
+
+    billSettings.setCallCost(Number(callCostSettingElement.value))
+    billSettings.setSmsCost(Number(smsCostSettingElement.value))
+    billSettings.setWarningLevel(Number(warningLevelSetting.value))
+    billSettings.setCriticalLevel(Number(criticalLevelSetting.value))
+    colorCode()
 
 }
 
 function calculateSettingsTotal() {
     var checkedSettingsBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    if (checkedSettingsBtn) {
-    
+       if(checkedSettingsBtn){
         var billItemType = checkedSettingsBtn.value
-        if (totalSettings < criticalLevelValue) {
-            switch (billItemType) {
-                case "call":
-                    totalSettings += callCostValue;
-                    callTotalSettings += callCostValue;
 
-                    break;
-                case "sms":
-                    totalSettings += smsCostValue;
-                    smsTotalSettings += smsCostValue;
-                    break;
-            };
+        if(billItemType === "call"){
+            billSettings.makeCall()
         }
-            changeTotalColor(totalSettings, warningLevelValue, criticalLevelValue)
-            callGrandTotal.innerHTML = callTotalSettings.toFixed(2);
-            smsGrandTotal.innerHTML = smsTotalSettings.toFixed(2);
-            grandTotal.innerHTML = totalSettings.toFixed(2);
+        if(billItemType === "sms"){
+            billSettings.sendSms()
         }
-    }
 
-
-function changeTotalColor(currentTotal, currentWarning, currentCritical) {
-    if (currentTotal >= currentWarning && currentTotal < currentCritical) {
-        grandTotal.classList.remove("danger");
-        grandTotal.classList.add("warning");
-    } else if (currentTotal >= currentCritical) {
-        grandTotal.classList.remove("warning");
-        grandTotal.classList.add("danger");
-    } else {
-        grandTotal.classList.remove("warning");
-        grandTotal.classList.remove("danger");
+        colorCode()
+        callGrandTotal.innerHTML = (billSettings.getTotalCallCost()).toFixed(2)
+        smsGrandTotal.innerHTML = (billSettings.getTotalSmsCost()).toFixed(2);
+        grandTotal.innerHTML = (billSettings.getTotalCost()).toFixed(2);
     }
+}
+
+function colorCode(){
+    grandTotal.classList.remove("danger");
+    grandTotal.classList.remove("warning");
+  
+    grandTotal.classList.add(billSettings.totalClassName());
 }
 
 updateSettingsButton.addEventListener("click", settingsBillTotal);

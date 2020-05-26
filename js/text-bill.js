@@ -8,24 +8,22 @@ var totalOneElement = document.querySelector(".totalOne")
 var callsTotalElement = document.querySelector(".callTotalOne")
 //sms total
 var smsTotalElement = document.querySelector(".smsTotalOne")
-//initial call total 
-var callsTotal = 0;
-//initial sms total
-var smsTotal = 0;
+
+var theBill = TextBill()
 
 //in the event listener check if the value in the bill type textbox is 'sms' or 'call'
 
 function textBillTotal() {
     var billItem = billTypeTextElement.value;
     if (billItem === "call") {
-        callsTotal += 2.75
+        theBill.inputCall()
     } else if (billItem === "sms") {
-        smsTotal += 0.75;
+        theBill.inputSms()
     }
-    callsTotalElement.innerHTML = callsTotal.toFixed(2);
-    smsTotalElement.innerHTML = smsTotal.toFixed(2);
-    var total = callsTotal + smsTotal;
-    totalOneElement.innerHTML = total.toFixed(2);
+    callsTotalElement.innerHTML = theBill.getTotalCallCost()
+    smsTotalElement.innerHTML = theBill.getTotalSmsCost()
+    var total = theBill.getTotalSmsCost() + theBill.getTotalCallCost()
+    totalOneElement.innerHTML = total.toFixed(2)
 
     if (total >= 50) {
         // adding the danger class will make the text red

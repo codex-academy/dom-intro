@@ -67,7 +67,7 @@ function CalculateBill() {
 
     function totalClassName() {
         if (getTotalCost() >= getCriticalLevel()) {
-            return "critical"
+            return "danger"
         }
         if (getTotalCost() >= getWarningLevel()) {
             return "warning"

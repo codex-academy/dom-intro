@@ -1,9 +1,9 @@
 function TextBill() {
     //SETTING THE VALUES COUNTER
-    var theCallCost = 0;
-    var theSmsCost = 0;
-    var theWarningLevel = 0;
-    var theCriticalLevel = 0;
+    var theCallCost = 2.75;
+    var theSmsCost = 0.75;
+    var theWarningLevel = 30;
+    var theCriticalLevel = 50;
     //USING THE VALUES COUNTER
     var callCostTotal = 0
     var smsCostTotal = 0;
