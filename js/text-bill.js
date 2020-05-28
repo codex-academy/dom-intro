@@ -1,32 +1,28 @@
 var billTypeTextElement = document.querySelector(".billTypeText")
 var addToBillBtn = document.querySelector(".addToBillBtn");
 var totalOneElement = document.querySelector(".totalOne")
-
 var callsTotalElement = document.querySelector(".callTotalOne")
 var smsTotalElement = document.querySelector(".smsTotalOne")
-var callsTotal = 0;
-var smsTotal = 0
 
-function textBillTotal() {
+var textBillFactory = textBillTotal();
 
-    var bills = billTypeTextElement.value;
-    if (bills === "call") {
-        callsTotal += 2.75
-    } else if (bills === "sms") {
-        smsTotal += 0.75;
-    }
+function textBillTotals() {
+    var billTypeTextEl = billTypeTextElement.value;
 
-    callsTotalElement.innerHTML = callsTotal.toFixed(2);
-    smsTotalElement.innerHTML = smsTotal.toFixed(2);
-    var totalCost = callsTotal + smsTotal;
-    totalOneElement.innerHTML = totalCost.toFixed(2);
+    textBillFactory.textBillAdd(billTypeTextEl);
+    var totalOfAll = textBillFactory.textBillEntered();
+    var colorTotal = textBillFactory.color();
+
+    callsTotalElement.innerHTML = totalOfAll.callOfTextBill.toFixed(2);
+    smsTotalElement.innerHTML = totalOfAll.smsOfTextBill.toFixed(2);
+    totalOneElement.innerHTML = totalOfAll.totalOfTextBill.toFixed(2);
 
 
-    if (totalCost >= 50) {
-        totalOneElement.classList.add("danger")
-    } else if (totalCost >= 30) {
-        totalOneElement.classList.add("warning")
+    totalOneElement.classList.remove("warning")
+    totalOneElement.classList.remove("danger")
+    if (colorTextTotal != "") {
+        totalOneElement.classList.add(colorTotal)
     }
 }
 
-addToBillBtn.addEventListener('click', textBillTotal);
+addToBillBtn.addEventListener('click', textBillTotals);
