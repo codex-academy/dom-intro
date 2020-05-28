@@ -1,20 +1,21 @@
-function calculateBtnClicked() {
+function calculateBtnA() {
     function addNewBill(billString) {
-    var billItems = billString.split(",");
-    var billTotal = 0;
-    for (var i = 0; i < billItems.length; i++) {
-        var billItem = billItems[i].trim();
-        switch (billItem) {
+        var billItems = billString.split(",");
+        var billTotal = 0;
+        for (var i = 0; i < billItems.length; i++) {
+            var billItem = billItems[i].trim();
+            switch (billItem) {
                 case "call":
-                    total += 2.75;
+                    billTotal += 2.75;
                     break;
                 case "sms":
-                    total += 0.75;
+                    billTotal += 0.75;
                     break;
-                }
             }
-            return billTotal.tofixed(2);
+        }
+        return billTotal.toFixed(2);
     }
+
     function getColor(item) {
         if (item > 20 && item < 30) {
             return "warning";

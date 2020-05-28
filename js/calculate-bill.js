@@ -3,21 +3,20 @@ const billTotalElement = document.querySelector(".billTotal")
 const billStringField = document.querySelector(".billString")
 const billTotalSpanElement = document.querySelector(".total")
 
-var factory = calculateString();
+var factory = calculateBtnA();
 
 function calculateBtnClicked() {
-    
-    var roundedBillTotal = factory.add(billStringElement.value);
-    
+
+    var roundedBillTotal = factory.add(billStringField.value);
+
     billTotalElement.innerHTML = roundedBillTotal;
-    
+
     var newColor = factory.color(roundedBillTotal);
     billTotalElement.classList.remove("warning");
     billTotalElement.classList.remove("danger");
     if (newColor !== "") {
-        billTotalElement.classList.add(newColor); 
+        billTotalElement.classList.add(newColor);
     }
 }
 
 calculateBtn.addEventListener("click", calculateBtnClicked);
-

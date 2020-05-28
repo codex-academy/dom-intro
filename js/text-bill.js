@@ -20,7 +20,7 @@ function textBillTotals() {
 
     totalOneElement.classList.remove("warning")
     totalOneElement.classList.remove("danger")
-    if (colorTextTotal != "") {
+    if (colorTotal != "") {
         totalOneElement.classList.add(colorTotal)
     }
 }
