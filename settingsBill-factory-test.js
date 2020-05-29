@@ -1,5 +1,5 @@
-describe("The update values button function", function () {
-    it("should update the values of the SettingsWithFactory", function () {
+describe("The update values button function for settingsBill", function() {
+    it("should update the values of the SettingsWithFactory", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -9,7 +9,7 @@ describe("The update values button function", function () {
         }
         assert.equal(true, PreSetCosts.updateValues(constants))
     });
-    it("should update the values of the SettingsWithFactory", function () {
+    it("should update the values of the SettingsWithFactory", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "kgs",
@@ -19,7 +19,7 @@ describe("The update values button function", function () {
         }
         assert.equal(false, PreSetCosts.updateValues(constants))
     });
-    it("should update the values of the SettingsWithFactory", function () {
+    it("should update the values of the SettingsWithFactory", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: ".25",
@@ -31,8 +31,8 @@ describe("The update values button function", function () {
     });
 });
 
-describe("The addFunction test", function () {
-    it("should return true if call was clicked", function () {
+describe("The addFunction test for settings and radio", function() {
+    it("should return true if call was clicked", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -43,7 +43,7 @@ describe("The addFunction test", function () {
         PreSetCosts.updateValues(constants)
         assert.equal(true, PreSetCosts.addFunction("call"))
     });
-    it("should return true if sms was clicked", function () {
+    it("should return true if sms was clicked", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -54,7 +54,7 @@ describe("The addFunction test", function () {
         PreSetCosts.updateValues(constants)
         assert.equal(true, PreSetCosts.addFunction("sms"))
     });
-    it("should return false if not call or sms", function () {
+    it("should return false if not call or sms", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -67,8 +67,8 @@ describe("The addFunction test", function () {
     });
 });
 
-describe("The settingsBillTotal function", function () {
-    it("should return the correct totals when added up", function () {
+describe("The settingsBillTotal function", function() {
+    it("should return the correct totals when added up", function() {
         var myPresetTest = SettingsFactoryFunction()
         var newConstants = {
             callSetting: "2.75",
@@ -85,7 +85,7 @@ describe("The settingsBillTotal function", function () {
             smsTotalSettings: 0.00
         }, totals)
     });
-    it("should return the correct totals when added up", function () {
+    it("should return the correct totals when added up", function() {
         var myPresetTest = SettingsFactoryFunction()
         var newConstants = {
             callSetting: "2.75",
@@ -99,15 +99,14 @@ describe("The settingsBillTotal function", function () {
         myPresetTest.addFunction("call")
         myPresetTest.addFunction("sms")
         var totals = myPresetTest.settingsBillTotals()
-        console.log(totals);
-        
+
         assert.deepEqual({
-            totalSettings: 6.40,
+            totalSettings: 7.00,
             callTotalSettings: 5.50,
             smsTotalSettings: 1.50
         }, totals)
     });
-    it("should return the correct totals when added up", function () {
+    it("should return the correct totals when added up", function() {
         var myPresetTest = SettingsFactoryFunction()
         var newConstants = {
             callSetting: "2.75",
@@ -130,8 +129,8 @@ describe("The settingsBillTotal function", function () {
     });
 });
 
-describe("The getColorLive settings widget)", function () {
-    it("should return black as color", function () {
+describe("The getColorLive settings widget)", function() {
+    it("should return black as color", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -143,9 +142,9 @@ describe("The getColorLive settings widget)", function () {
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
-        assert.equal("",PreSetCosts.getColorLive() )
+        assert.equal("", PreSetCosts.getColorLive())
     });
-    it("should return red as color", function () {
+    it("should return red as color", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -165,9 +164,9 @@ describe("The getColorLive settings widget)", function () {
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
-        assert.equal("danger",PreSetCosts.getColorLive() )
+        assert.equal("danger", PreSetCosts.getColorLive())
     });
-    it("should return orange as color", function () {
+    it("should return orange as color", function() {
         var PreSetCosts = SettingsFactoryFunction();
         var constants = {
             callSetting: "1.50",
@@ -183,7 +182,7 @@ describe("The getColorLive settings widget)", function () {
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
         PreSetCosts.addFunction("call")
-      
-        assert.equal("warning",PreSetCosts.getColorLive() )
+
+        assert.equal("warning", PreSetCosts.getColorLive())
     });
 });

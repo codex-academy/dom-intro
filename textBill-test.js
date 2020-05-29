@@ -22,13 +22,13 @@ describe("the textBill factory function", function() {
             textBill.textBillAdd("call")
             textBill.textBillAdd("call")
             assert.deepEqual({
-                totalTextBill: 52.25,
-                callTextBill: 52.25,
-                smsTextBill: 0,
+                totalOfTextBill: 52.25,
+                callOfTextBill: 52.25,
+                smsOfTextBill: 0,
             }, textBill.textBillEntered());
 
         });
-        it("should be able to increment 0.75 when sms is entered up to 67 times without call", function() {
+        it("should be able to increment 0.75 when sms is entered up to 7 times without call", function() {
             var textBill = textBillTotal();
             textBill.textBillAdd("sms")
             textBill.textBillAdd("sms")
@@ -37,73 +37,10 @@ describe("the textBill factory function", function() {
             textBill.textBillAdd("sms")
             textBill.textBillAdd("sms")
             textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
-            textBill.textBillAdd("sms")
             assert.deepEqual({
-                totalTextBill: 50.25,
-                callTextBill: 0,
-                smsTextBill: 50.25,
+                totalOfTextBill: 5.25,
+                callOfTextBill: 0,
+                smsOfTextBill: 5.25,
             }, textBill.textBillEntered());
 
         });
@@ -116,9 +53,9 @@ describe("the textBill factory function", function() {
             textBill.textBillAdd("call")
             textBill.textBillAdd("call")
             assert.deepEqual({
-                totalTextBill: 10.50,
-                callTextBill: 8.25,
-                smsTextBill: 2.25,
+                totalOfTextBill: 10.50,
+                callOfTextBill: 8.25,
+                smsOfTextBill: 2.25,
             }, textBill.textBillEntered());
 
         });
