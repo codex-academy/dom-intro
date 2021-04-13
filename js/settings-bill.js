@@ -1,22 +1,52 @@
-// get a reference to the sms or call radio buttons
+var callGrandTotal = document.querySelector(".callTotalSettings");
+var smsGrandTotal = document.querySelector(".smsTotalSettings");
+var grandTotal = document.querySelector(".totalSettings");
 
-// get refences to all the settings fields
 
-//get a reference to the add button
+var callCostSettingElement = document.querySelector(".callCostSetting");
+var smsCostSettingElement = document.querySelector(".smsCostSetting");
+var warningLevelSetting = document.querySelector(".warningLevelSetting");
+var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
+var updateSettingsButton = document.querySelector(".updateSettings");
+var settingsAddButton = document.querySelector(".add")
 
-//get a reference to the 'Update settings' button
 
-// create a variables that will keep track of all the settings
+var settingsOfFactory = SettingsFactoryFunction()
 
-// create a variables that will keep track of all three totals.
 
-//add an event listener for when the 'Update settings' button is pressed
+function updateTotal() {
+    var input = {
+        callSetting: callCostSettingElement.value,
+        smsSetting: smsCostSettingElement.value,
+        warningSetting: warningLevelSetting.value,
+        criticalSetting: criticalLevelSetting.value
+    };
+    settingsOfFactory.updateValues(input);
+    var colorTicked = settingsOfFactory.getColorLive();
+    grandTotal.classList.remove("warning");
+    grandTotal.classList.remove("danger");
+    if (colorTicked != "") {
+        grandTotal.classList.add(colorTicked);
+    }
+}
 
-//add an event listener for when the add button is pressed
+function calculatedSettingsTotal() {
+    var checkedSettingButton = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    if (checkedSettingButton) {
+        var billItemType = checkedSettingButton.value
+        settingsOfFactory.addFunction(billItemType);
+        var colorTicked = settingsOfFactory.getColorLive();
+        callGrandTotal.innerHTML = settingsOfFactory.settingsBillTotals().callTotalSettings.toFixed(2);
+        smsGrandTotal.innerHTML = settingsOfFactory.settingsBillTotals().smsTotalSettings.toFixed(2);
+        grandTotal.innerHTML = settingsOfFactory.settingsBillTotals().totalSettings.toFixed(2);
+        grandTotal.classList.remove("warning");
+        grandTotal.classList.remove("danger");
+        if (colorTicked != "") {
+            grandTotal.classList.add(colorTicked);
+        }
+    }
+}
 
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the call / sms total
-// * add the appropriate value to the overall total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
+
+updateSettingsButton.addEventListener("click", updateTotal);
+settingsAddButton.addEventListener("click", calculatedSettingsTotal);

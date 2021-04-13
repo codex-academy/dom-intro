@@ -1,12 +1,28 @@
-// get a reference to the textbox where the bill type is to be entered
+var billTypeTextElement = document.querySelector(".billTypeText")
+var addToBillBtn = document.querySelector(".addToBillBtn");
+var totalOneElement = document.querySelector(".totalOne")
+var callsTotalElement = document.querySelector(".callTotalOne")
+var smsTotalElement = document.querySelector(".smsTotalOne")
 
-//get a reference to the add button
+var textBillFactory = textBillTotal();
 
-//create a variable that will keep track of the total bill
+function textBillTotals() {
+    var billTypeTextEl = billTypeTextElement.value;
 
-//add an event listener for when the add button is pressed
+    textBillFactory.textBillAdd(billTypeTextEl);
+    var totalOfAll = textBillFactory.textBillEntered();
+    var colorTotal = textBillFactory.color();
 
-//in the event listener check if the value in the bill type textbox is 'sms' or 'call'
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen
+    callsTotalElement.innerHTML = totalOfAll.callOfTextBill.toFixed(2);
+    smsTotalElement.innerHTML = totalOfAll.smsOfTextBill.toFixed(2);
+    totalOneElement.innerHTML = totalOfAll.totalOfTextBill.toFixed(2);
+
+
+    totalOneElement.classList.remove("warning")
+    totalOneElement.classList.remove("danger")
+    if (colorTotal != "") {
+        totalOneElement.classList.add(colorTotal)
+    }
+}
+
+addToBillBtn.addEventListener('click', textBillTotals);
