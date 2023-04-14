@@ -9,10 +9,9 @@
 // * display the latest total on the screen
 
 const myText1 = document.querySelector(".billTypeText");
-// get a reference to the textbox where the bill type is to be entered
 
 const myButton1 = document.querySelector(".addToBillBtn");
-//get a reference to the add button
+
 const callsTotalElem = document.querySelector(".callTotalOne");
 
 const smsTotalElem = document.querySelector(".smsTotalOne");

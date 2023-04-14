@@ -27,7 +27,7 @@ function totalPhoneBill(billList){
      var bill = currentList[i].trim();
    
       if (bill.startsWith("sms")){
-    total += 500.65;
+    total += 0.65;
    }
      else if (bill.startsWith("call")){
     total += 2.75;
