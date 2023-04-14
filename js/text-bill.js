@@ -1,3 +1,6 @@
+var callsTotal = 0;
+var smsTotal = 0;
+
 // get a reference to the textbox where the bill type is to be entered
 
 //get a reference to the add button
