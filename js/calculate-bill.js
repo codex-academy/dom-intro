@@ -20,7 +20,7 @@ function calculateBtnClicked(){
             billTotal += 2.75;
         }
         else if (billItem === "sms"){
-            billTotal += 0.75;
+          billTotal += 0.75;
         }
     
     
@@ -29,7 +29,17 @@ function calculateBtnClicked(){
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
 }
+
+if(billTotal > 30 ){
+    billTotalElement.classList.add("danger")
 }
+   
+else if(billTotal > 20 ){
+    billTotalElement.classList.add("warning")
+}
+}
+
+
 calculateBtn.addEventListener('click', calculateBtnClicked);
 
 
@@ -39,6 +49,7 @@ const billTotalElement = document.querySelector(".billTotal")
 
 //get a reference to the billString
 const billStringElement = document.querySelector(".billString");
+
 
 //create the function that will be called when the calculate button is pressed
 //  * this function should read the string value entered - split it on a comma.
