@@ -16,8 +16,7 @@ var smsTotal = 0;
 //addToBillBtn.addEventListener('click', addToBillBtn);
 //in the event listener check if the value in the bill type textbox is 'sms' or 'call'
 function textBillTotal(){
-    
-    var billTypeEntered = billTypeText.value.trim();
+    var billTypeEntered = billTypeText.value.toLowerCase().trim();
    // console.log(billTypeEntered)
     if (billTypeEntered === "call"){
         callsTotal += 2.75
