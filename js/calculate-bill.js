@@ -28,6 +28,9 @@ function calculateBtnClicked(){
 
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
+    billTotalElement.classList.remove("danger")
+billTotalElement.classList.remove("warning")
+
 }
 
 if(billTotal > 30 ){
@@ -37,6 +40,7 @@ if(billTotal > 30 ){
 else if(billTotal > 20 ){
     billTotalElement.classList.add("warning")
 }
+
 }
 
 
