@@ -21,6 +21,8 @@ function updateBillSettings() {
   smsCostSetting = smsCost.value;
   warningLevelSetting = warningLevel.value;
   criticalLevelSetting = criticalLevel.value;
+  setColor()
+  
 }
 
 const updateSettingsBtn = document.querySelector(".updateSettings");
@@ -46,7 +48,16 @@ function addSettingsBtn() {
   smsTotalSettings.innerHTML = smsTotal.toFixed(2);
   total = callTotal + smsTotal;
 
+  setColor()
+ 
+
+}
+
+
+function setColor(){
   totalSettings.innerHTML = total.toFixed(2);
+  totalSettings.classList.remove('danger')
+  totalSettings.classList.remove('warning')
   if (total >= criticalLevelSetting) {
     totalSettings.classList.add("danger");
   } else if (total >= warningLevelSetting) {
