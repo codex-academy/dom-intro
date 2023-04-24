@@ -33,7 +33,7 @@ function addSettingsBtn() {
     "input[name='billItemTypeWithSettings']:checked"
   );
 
-  if (billItemType) {
+  if (billItemType && total < criticalLevelSetting) {
     var billItem = billItemType.value;
 
     if (billItem == "call") {
@@ -43,6 +43,7 @@ function addSettingsBtn() {
       smsTotal += Number(smsCostSetting);
       //console.log(smsTotal);
     }
+    
   }
   callTotalSettings.innerHTML = callTotal.toFixed(2);
   smsTotalSettings.innerHTML = smsTotal.toFixed(2);
@@ -63,10 +64,15 @@ function setColor(){
   } else if (total >= warningLevelSetting) {
     totalSettings.classList.add("warning");
   }
+
 }
 
 const addButton = document.querySelector(".add-setting-btn");
 addButton.addEventListener("click", addSettingsBtn);
+if(total > criticalLevelSetting){
+
+}
+
 
 //add an event listener for when the 'Update settings' button is pressed
 //updateSettingsBtn.addEventListener("click",billSettings)
