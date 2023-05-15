@@ -7,20 +7,23 @@ const totalSettings = document.querySelector(".totalSettings");
 const callTotalSettings = document.querySelector(".callTotalSettings");
 const smsTotalSettings = document.querySelector(".smsTotalSettings");
 
+// created a function instance
+let  settingsBill = BillWithSettings()
 // create a variables that will keep track of all three totals.
-var callTotal = 0;
-var smsTotal = 0;
-var total = 0;
-var callCostSetting = 0;
-var smsCostSetting = 0;
-var warningLevelSetting = 0;
-var criticalLevelSetting = 0;
+// var callTotal = 0;
+// var smsTotal = 0;
+// var total = 0;
+// var callCostSetting = 0;
+// var smsCostSetting = 0;
+// var warningLevelSetting = 0;
+// var criticalLevelSetting = 0;
 
 function updateBillSettings() {
-  callCostSetting = callCost.value;
-  smsCostSetting = smsCost.value;
-  warningLevelSetting = warningLevel.value;
-  criticalLevelSetting = criticalLevel.value;
+  // call the functions to set the values, be mindful to call the instantance of the factory function 
+  settingsBill.setCallCost(Number (callCost.value));
+  settingsBill.setSmsCost(Number(smsCost.value));
+  settingsBill.setWarningLevel(Number(warningLevel.value));
+  settingsBill.setCriticalLevel(Number(criticalLevel.value));
   setColor()
   
 }
@@ -33,21 +36,22 @@ function addSettingsBtn() {
     "input[name='billItemTypeWithSettings']:checked"
   );
 
-  if (billItemType && total < criticalLevelSetting) {
+  //if (billItemType && settingsBill.getTotalCost() < criticalLevelSetting) {
     var billItem = billItemType.value;
 
     if (billItem == "call") {
-      callTotal += Number(callCostSetting);
+      settingsBill.makeCall()
     }
     if (billItem == "sms") {
-      smsTotal += Number(smsCostSetting);
+      settingsBill.sendSms()
       //console.log(smsTotal);
     }
     
-  }
-  callTotalSettings.innerHTML = callTotal.toFixed(2);
-  smsTotalSettings.innerHTML = smsTotal.toFixed(2);
-  total = callTotal + smsTotal;
+ // }
+  callTotalSettings.innerHTML = settingsBill.getTotaCalllCost().toFixed(2);
+  smsTotalSettings.innerHTML = settingsBill.getTotalSmsCost().toFixed(2);
+
+  // total = callTotal + smsTotal;
 
   setColor()
  
@@ -56,22 +60,20 @@ function addSettingsBtn() {
 
 
 function setColor(){
-  totalSettings.innerHTML = total.toFixed(2);
+  totalSettings.innerHTML = settingsBill.getTotalCost().toFixed(2);
   totalSettings.classList.remove('danger')
   totalSettings.classList.remove('warning')
-  if (total >= criticalLevelSetting) {
-    totalSettings.classList.add("danger");
-  } else if (total >= warningLevelSetting) {
-    totalSettings.classList.add("warning");
-  }
+ 
+    totalSettings.classList.add(settingsBill.totalClassName());
+ 
 
 }
 
 const addButton = document.querySelector(".add-setting-btn");
 addButton.addEventListener("click", addSettingsBtn);
-if(total > criticalLevelSetting){
+// if(total > criticalLevelSetting){
 
-}
+// }
 
 
 //add an event listener for when the 'Update settings' button is pressed
