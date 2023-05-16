@@ -1,19 +1,24 @@
 //get a reference to the calculate button
 const calculateBtn = document.querySelector(".calculateBtn");
 const billTotalElement = document.querySelector(".billTotal");
-const billStringElement = document.querySelector(".billString");
+const billStringElem = document.querySelector(".billString");
+
+let linkToCalculate = calculateBtnClicked();
+
 
 calculateBtn.addEventListener("click", function(){
 
 
-  let linkToCalculate = calculateBtnClicked();
-
-  let stringBill = billStringElement.value;
-  linkToCalculate.setCallOrSms(stringBill);
   
-  billTotalElement.classList.add(linkToCalculate.warningLevel());
-  billTotalElement.classList.add(linkToCalculate.criticalLevel());
-  billTotalElement.innerHTML = linkToCalculate.setCallOrSms();
+
+  let stringBill = billStringElem.value;
+
+
+  billTotalElement.innerHTML =  linkToCalculate.setCallOrSms(stringBill).toFixed(2);
+  
+
+   
+   
 
 });
 

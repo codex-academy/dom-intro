@@ -1,7 +1,9 @@
 function calculateBtnClicked() {
-  var billTotal = 0;
+ 
   
   function setCallOrSms(data) {
+     var billTotal = 0;
+ 
 
     var billItems = data.split(",");
     for (var i = 0; i < billItems.length; i++) {
@@ -11,7 +13,7 @@ function calculateBtnClicked() {
         billTotal += 0.75;
       }
     }
-    return billTotal;
+    return billTotal
   }
  
 
@@ -22,7 +24,7 @@ function calculateBtnClicked() {
   }
 
   function criticalLevel() {
-    if (billTotal >= 30) {
+    if (billTotal > 30) {
       return "danger";
     }
   }
