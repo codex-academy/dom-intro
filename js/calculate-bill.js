@@ -15,13 +15,16 @@ calculateBtn.addEventListener("click", function(){
 
 
   billTotalElement.innerHTML =  linkToCalculate.setCallOrSms(stringBill).toFixed(2);
-  billTotalElement.classList.add(linkToCalculate.warningLevel());
-  billTotalElement.classList.add(linkToCalculate.criticalLevel());
-  
   
 
+  
+  billTotalElement.classList.remove(linkToCalculate.clearWarningLevel());
+  billTotalElement.classList.remove(linkToCalculate.clearCriticalLevel());
    
-   
+  
+  billTotalElement.classList.add(linkToCalculate.warningLevel());
+  billTotalElement.classList.add(linkToCalculate.criticalLevel());
+
 
 });
 

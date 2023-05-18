@@ -36,7 +36,7 @@ function addSettingsBtn() {
     "input[name='billItemTypeWithSettings']:checked"
   );
 
-  //if (billItemType && settingsBill.getTotalCost() < criticalLevelSetting) {
+
     var billItem = billItemType.value;
 
     if (billItem == "call") {
@@ -44,10 +44,9 @@ function addSettingsBtn() {
     }
     if (billItem == "sms") {
       settingsBill.sendSms()
-      //console.log(smsTotal);
+
     }
     
- // }
   callTotalSettings.innerHTML = settingsBill.getTotaCalllCost().toFixed(2);
   smsTotalSettings.innerHTML = settingsBill.getTotalSmsCost().toFixed(2);
 
@@ -71,6 +70,10 @@ function setColor(){
 
 const addButton = document.querySelector(".add-setting-btn");
 addButton.addEventListener("click", addSettingsBtn);
+
+
+
+
 // if(total > criticalLevelSetting){
 
 // }

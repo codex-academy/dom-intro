@@ -89,6 +89,7 @@ describe("Use Values", function () {
     let settingsBill = BillWithSettings();
     settingsBill.setCallCost(1.35);
     settingsBill.setSmsCost(0.85);
+    settingsBill.setCriticalLevel(10);
 
 
     settingsBill.sendSms();
@@ -102,6 +103,7 @@ describe("Use Values", function () {
     let settingsBill = BillWithSettings();
     settingsBill.setCallCost(1.35);
     settingsBill.setSmsCost(0.85);
+    settingsBill.setCriticalLevel(10)
 
 
     settingsBill.sendSms();
