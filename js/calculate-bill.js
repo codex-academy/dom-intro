@@ -18,6 +18,7 @@ calculateBtn.addEventListener("click", function(){
   billTotalElement.classList.add(linkToCalculate.warningLevel());
   billTotalElement.classList.add(linkToCalculate.criticalLevel());
   
+  
 
    
    
