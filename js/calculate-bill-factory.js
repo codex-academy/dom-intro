@@ -1,8 +1,8 @@
 function calculateBtnClicked() {
- 
+  var billTotal = 0;
   
   function setCallOrSms(data) {
-     var billTotal = 0;
+     
  
 
     var billItems = data.split(",");
